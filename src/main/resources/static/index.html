@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube Downloader</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>YouTube Downloader</h1>
+    <p class="subtitle">Paste a YouTube URL and generate available formats. Files save to your Downloads/ytd folder.</p>
+
+    <div class="form-row">
+      <label for="url">YouTube URL</label>
+      <input id="url" name="url" type="url" placeholder="https://www.youtube.com/watch?v=..." required>
+      <button id="genBtn" type="button">Generate Links</button>
+    </div>
+
+    <div id="status" class="status info">Ready</div>
+
+    <div id="preview" class="preview hidden">
+      <div class="thumb-wrap">
+        <img id="thumbImg" alt="thumbnail" />
+      </div>
+      <div class="wait">
+        <div class="loader"></div>
+        <div id="tip" class="tip">Fetching formats…</div>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="video">Video</button>
+      <button class="tab" data-tab="audio">Audio</button>
+    </div>
+
+    <div id="results" class="results hidden">
+      <div class="tabpanes">
+        <div class="tabpane active" id="tab-video">
+          <div id="videoList" class="list"></div>
+        </div>
+        <div class="tabpane" id="tab-audio">
+          <div id="audioList" class="list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/script.js"></script>
+</body>
+</html>
