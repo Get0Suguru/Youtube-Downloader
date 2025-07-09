@@ -1,0 +1,103 @@
+/* Theme */
+:root{
+  --red:#e11d48; /* cherry red */
+  --red-dark:#be123c;
+  --bg:#0a0a0b; /* near black */
+  --panel:#121216; /* dark panel */
+  --border:#20222a;
+  --text:#e5e7eb; /* white-ish */
+  --muted:#9ca3af;
+  --primary:#22c55e;
+  --primary-700:#16a34a;
+  --danger:#ef4444;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,'Noto Sans',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+.container{
+  width:100%;
+  max-width:880px;
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:24px;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+h1{margin:0 0 14px;font-size:28px;font-weight:700;color:var(--text)}
+.subtitle{margin:0 0 20px;color:var(--muted);font-size:14px}
+label{display:block;margin:8px 0 8px;color:var(--text)}
+input,select,button{
+  width:100%;
+  padding:12px 14px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:var(--panel);
+  color:var(--text);
+  outline:none;
+}
+input:focus,select:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(148,163,184,.15)}
+button{
+  background:var(--red);
+  color:#fff;
+  font-weight:600;
+  border:none;
+  cursor:pointer;
+  margin-top:12px;
+  padding:10px 14px;
+}
+button:hover{background:var(--red-dark)}
+.status{margin-top:16px;padding:12px;border-radius:10px;border:1px solid var(--border);color:var(--text);background:var(--panel)}
+.status.success{border-color:var(--primary-700);background:var(--primary-700);color:#bbf7d0}
+.status.error{border-color:var(--danger);background:var(--danger);color:#fecaca}
+.status.info{border-color:var(--border);background:var(--panel);color:var(--muted)}
+
+/* New UI helpers */
+.hidden{display:none}
+.form-row{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:end}
+.form-row label{grid-column:1/-1}
+
+/* Preview */
+.preview{display:flex;align-items:center;gap:14px;margin-top:14px;padding:12px;border:1px solid var(--border);border-radius:10px;background:var(--panel)}
+.preview.hidden{display:none}
+.thumb-wrap{width:160px;aspect-ratio:16/9;background:var(--panel);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.thumb-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.wait{display:flex;align-items:center;gap:10px}
+.tip{color:var(--muted);font-size:14px}
+.loader{width:16px;height:16px;border:2px solid var(--border);border-top-color:var(--red);border-radius:50%;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Tabs */
+.tabs{display:flex;gap:8px;margin-top:18px}
+.tab{flex:1 1 0;background:var(--panel);border:1px solid var(--border);color:var(--text);padding:8px 10px;border-radius:10px;min-width:0;text-align:center}
+.tab.active{background:var(--panel);border-color:var(--red)}
+.tab:hover{border-color:var(--red)}
+.tabpanes{margin-top:14px}
+.tabpane{display:none}
+.tabpane.active{display:block}
+
+/* Lists */
+.list{display:flex;flex-direction:column;gap:10px;max-height:360px;overflow-y:auto;padding-right:6px}
+.row{display:flex;gap:12px;justify-content:space-between;align-items:center;padding:10px;border:1px solid var(--border);border-radius:10px;background:var(--panel)}
+.meta .title{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:520px}
+.meta .desc{color:var(--muted);font-size:13px;margin-top:4px}
+.actions button{min-width:auto;padding:8px 10px;font-size:14px;background:var(--red);border:none;color:#fff;border-radius:8px}
+.actions button:hover{background:var(--red-dark)}
+.empty{padding:16px;border:1px dashed var(--border);border-radius:10px;color:var(--muted);text-align:center}
+.load-more{margin-top:8px;background:var(--panel);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:8px 10px}
+.load-more:hover{border-color:var(--red)}
+
+/* Results container */
+.results.hidden{display:none}
+
+/* Progress bar */
+.progress{margin-top:12px;height:10px;background:var(--panel);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.progress>div{height:100%;width:0%;background:linear-gradient(90deg,var(--red),#fb7185)}
